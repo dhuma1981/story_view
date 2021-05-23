@@ -37,8 +37,8 @@ class StoryItem {
   final Widget view;
   StoryItem(
     this.view, {
-      required this.duration,
-        this.shown = false,
+    required this.duration,
+    this.shown = false,
   }) : assert(duration != null, "[duration] should not be null");
 
   /// Short hand to create text-only page.
@@ -602,7 +602,8 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
       }
     } else {
       // this is the last page, progress animation should skip to end
-      _animationController!.animateTo(1.0, duration: Duration(milliseconds: 10));
+      _animationController!
+          .animateTo(1.0, duration: Duration(milliseconds: 10));
     }
   }
 
@@ -624,7 +625,7 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Colors.transparent,
       child: Stack(
         children: <Widget>[
           _currentView,
@@ -773,8 +774,7 @@ class PageBarState extends State<PageBar> {
   }
 
   bool isPlaying(PageData page) {
-    return widget.pages.firstWhereOrNull((it) => !it.shown) ==
-        page;
+    return widget.pages.firstWhereOrNull((it) => !it.shown) == page;
   }
 
   @override
